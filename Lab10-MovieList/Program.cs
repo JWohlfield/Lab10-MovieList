@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace Lab10_MovieList
@@ -21,6 +22,8 @@ namespace Lab10_MovieList
             movies.Add(new Movie("Frozen", "animated"));
             movies.Add(new Movie("JAWS", "horror"));
             movies.Add(new Movie("Jurassic Park", "scifi"));
+            //  Create a copy of the movies list sorted by title
+            List<Movie> SortedList = movies.OrderBy(sm => sm.Title).ToList();
 
             Console.WriteLine("Welcome to the totally amazing Movie List app");
             
@@ -52,7 +55,8 @@ namespace Lab10_MovieList
                     continue;
                 }
 
-                foreach (var m in movies)
+                
+                foreach (var m in SortedList)
                 {
                     if(m.Category == pick)
                     {
